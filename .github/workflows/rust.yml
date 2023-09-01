@@ -2,9 +2,9 @@ name: Rust
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   CARGO_TERM_COLOR: always
@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/HUHU192
+    - uses: actions/checkout@v2
 
     - name: Build
       run: cargo build --release
@@ -25,7 +25,7 @@ jobs:
           mkdir upload
           copy russ.json upload
           copy target/release/russ.exe upload
-    
+
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
